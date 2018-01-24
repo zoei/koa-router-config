@@ -1,0 +1,28 @@
+{
+  "name": "koa-router-config",
+  "version": "0.0.1",
+  "description": "A koa-router wrapper for Koa 2.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoei/koa-router-config.git"
+  },
+  "keywords": [
+    "koa",
+    "router",
+    "config"
+  ],
+  "author": "zoei@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoei/koa-router-config/issues"
+  },
+  "homepage": "https://github.com/zoei/koa-router-config#readme",
+  "dependencies": {
+    "koa-compose": "^4.0.0",
+    "koa-router": "^7.3.0"
+  }
+}
