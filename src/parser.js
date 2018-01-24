@@ -66,8 +66,8 @@ function configRoute(router, config) {
   })
 }
 
-function parseRouteConfig(things, routeConfig, options) {
-  let [methods, url] = things.split(' ')
+function parseRouteConfig(routePath, routeConfig, options) {
+  let [methods, url] = routePath.split(' ')
   if (!url) {
     url = methods
     methods = ['get']
@@ -76,11 +76,13 @@ function parseRouteConfig(things, routeConfig, options) {
   }
 
   let parsedRouteConfig = parseConfig(routeConfig, options)
-  return Object.assign({
+  return Object.assign(
+    {},
+    parsedRouteConfig,
+    {
       url,
       methods
-    },
-    parsedRouteConfig
+    }
   )
 }
 
@@ -95,7 +97,9 @@ function ConfigRouter(routerOptions = {}) {
     }
     var routesConfigArray = []
     if (Array.isArray(routesConfig)) {
-      routesConfigArray = routesConfig;
+      routesConfigArray = routesConfig.map(routeConfig => {
+        return parseRouteConfig(routeConfig.url, routeConfig, routerOptions)
+      })
     } else if (typeof routesConfig === 'object') {
       Object.keys(routesConfig).forEach(url => {
         routesConfigArray.push(parseRouteConfig(url, routesConfig[url], configOptions))

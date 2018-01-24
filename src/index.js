@@ -1,3 +1,3 @@
 module.exports = {
-  configRoutes: require('./parser').configRoutes
+  ConfigRouter: require('./parser').ConfigRouter
 }
