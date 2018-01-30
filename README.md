@@ -77,7 +77,7 @@ controllers/api/user.js
 routes/index.js
 ```javascript
 const ConfigRouter = require('koa-router-config').ConfigRouter;
-const configRoute = ConfigRouter();
+const configRoute = new ConfigRouter();
 configRouter.config(
   { controllerRoot: path.resolve(__dirname, '../controllers') },
   {
