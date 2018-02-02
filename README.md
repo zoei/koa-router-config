@@ -54,6 +54,7 @@ directories
 ├── routes/
 │   ├── api.js
 │   ├── index.js
+├── server.js
 ```
 
 controllers/home.js
@@ -113,4 +114,15 @@ configRouter.config(
   ]
 );
 module.exports = configRouter.router;           // export koa-router instance
+```
+
+server.js
+```javascript
+const Koa = require('koa')
+const app = new Koa()
+const router = require('./routes')
+...
+app.use(router.routes())
+app.use(router.allowedMethods())
+...
 ```
